@@ -1,0 +1,19 @@
+{
+    "name": "team-reflex/discord-oauth",
+    "description": "OAuth2 client for Discord",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Cole",
+            "email": "david@team-reflex.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Discord\\OAuth\\": "src/Discord"
+        }
+    },
+    "require": {
+        "league/oauth2-client": "^1.3"
+    }
+}
