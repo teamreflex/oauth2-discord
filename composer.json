@@ -1,6 +1,6 @@
 {
     "name": "team-reflex/discord-oauth",
-    "description": "OAuth2 client for Discord",
+    "description": "OAuth2 client for authenticating with the Discord API servers",
     "license": "MIT",
     "authors": [
         {
