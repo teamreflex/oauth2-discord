@@ -81,6 +81,14 @@ class Discord extends AbstractProvider
     /**
      * {@inheritdoc}
      */
+    protected function getAuthorizationHeaders($token = null)
+    {
+        return ['Authorization' => 'Bearer '.$token];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function checkResponse(ResponseInterface $response, $data)
     {
     }
@@ -90,5 +98,6 @@ class Discord extends AbstractProvider
      */
     protected function createResourceOwner(array $response, AccessToken $token)
     {
+        return $response;
     }
 }
