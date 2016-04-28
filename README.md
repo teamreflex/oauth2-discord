@@ -18,7 +18,7 @@ $provider = new \Discord\OAuth\Discord([
 	'clientSecret' => 'oauth-app-secret',
 ]);
 
-echo '<a href="'.$provider->getAuthorizationUrl().">Login with Discord</a>';
+echo '<a href="'.$provider->getAuthorizationUrl().'">Login with Discord</a>';
 ```
 
 ## License
