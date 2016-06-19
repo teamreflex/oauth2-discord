@@ -35,6 +35,11 @@ if (! isset($_GET['code'])) {
 }
 ```
 
+## Credits
+
+- [David Cole](https://github.com/uniquoooo)
+- [All Contributors](https://github.com/teamreflex/oauth-discord/contributors)
+
 ## License
 
 This code is subject to the MIT license which can be found in the [LICENSE](LICENSE) file.

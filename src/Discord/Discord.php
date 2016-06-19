@@ -110,4 +110,68 @@ class Discord extends AbstractProvider
     {
         return new User($this, $token, (array) $response);
     }
+
+    /**
+     * Runs a request.
+     *
+     * @param string      $method The HTTP method.
+     * @param string      $url    The URL.
+     * @param AccessToken $token  The auth token.
+     * 
+     * @return array Response.
+     */
+    public function request($method, $url, $token)
+    {
+        $request = $this->getAuthenticatedRequest(
+            $method, $url, $token
+        );
+
+        return $this->getResponse($request);
+    }
+
+    /**
+     * Gets the guilds endpoint.
+     *
+     * @return string Endpoint.
+     */
+    public function getGuildsEndpoint()
+    {
+        return self::BASE_API_URL.'/users/@me/guilds';
+    }
+
+    /**
+     * Gets the connections endpoint.
+     *
+     * @return string Endpoint.
+     */
+    public function getConnectionsEndpoint()
+    {
+        return self::BASE_API_URL.'/users/@me/connections';
+    }
+
+    /**
+     * Gets the accept invite endpoint.
+     *
+     * @param string $invite The invite.
+     *
+     * @return string Endpoint.
+     */
+    public function getInviteEndpoint($invite)
+    {
+        return self::BASE_API_URL.'/invites/'.$invite;
+    }
+
+    /**
+     * Builds a part.
+     *
+     * @param string      $part       The part to build.
+     * @param AccessToken $token      The access token.
+     * @param array       $attributes Array of attributes.
+     *
+     * @return Part A part.
+     */
+    public function buildPart($part, AccessToken $token, $attributes = [])
+    {
+        return new $part($this, $token, (array) $attributes);
+    }
 }

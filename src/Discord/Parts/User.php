@@ -14,8 +14,9 @@ namespace Discord\OAuth\Parts;
 use Discord\OAuth\Discord;
 use Discord\OAuth\Part;
 use Illuminate\Support\Collection;
+use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
-class User extends Part
+class User extends Part implements ResourceOwnerInterface
 {
     /**
      * {@inheritdoc}
@@ -31,27 +32,32 @@ class User extends Part
     ];
 
     /**
+     * {@inheritdoc}
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Gets the guilds attribute.
      *
      * @return Collection Guilds.
      */
     public function getGuildsAttribute()
     {
-        $request = $this->discord->getAuthenticatedRequest(
+        $request = $this->discord->request(
             'GET',
-            Discord::BASE_API_URL.'/users/@me/guilds',
+            $this->discord->getGuildsEndpoint(),
             $this->token
         );
-        $response = $this->discord->getResponse($request);
 
         $collection = new Collection();
 
-        foreach ((array) $response as $raw) {
-            $collection->push(new Guild(
-                $this->discord,
-                $this->token,
-                (array) $raw
-            ));
+        foreach ($response as $raw) {
+            $collection->push(
+                $this->discord->buildPart(Guild::class, $this->token, $raw)
+            );
         }
 
         return $collection;
@@ -64,21 +70,18 @@ class User extends Part
      */
     public function getConnectionsAttribute()
     {
-        $request = $this->discord->getAuthenticatedRequest(
+        $response = $this->discord->request(
             'GET',
-            Discord::BASE_API_URL.'/users/@me/connections',
+            $this->discord->getConnectionsEndpoint(),
             $this->token
         );
-        $response = $this->discord->getResponse($request);
 
         $collection = new Collection();
 
-        foreach ((array) $response as $raw) {
-            $collection->push(new Connection(
-                $this->discord,
-                $this->token,
-                (array) $raw
-            ));
+        foreach ($response as $raw) {
+            $collection->push(
+                $this->discord->buildPart(Connection::class, $this->token, $raw)
+            );
         }
 
         return $collection;
@@ -97,17 +100,12 @@ class User extends Part
             $invite = $matches[1];
         }
 
-        $request = $this->discord->getAuthenticatedRequest(
+        $response = $this->discord->request(
             'POST',
-            Discord::BASE_API_URL.'/invites/'.$invite,
+            $this->discord->getInviteEndpoint($invite),
             $this->token
         );
-        $response = $this->discord->getResponse($request);
 
-        return new Invite(
-            $this->discord,
-            $this->token,
-            $response
-        );
+        return $this->discord->buildPart(Invite::class, $this->token, $raw);
     }
 }

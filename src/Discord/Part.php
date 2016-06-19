@@ -110,6 +110,22 @@ class Part
      */
     public function __debugInfo()
     {
-        return $this->attributes;
+        return $this->toArray();
+    }
+
+    /**
+     * Converts the object to an array.
+     *
+     * @return array 
+     */
+    public function toArray()
+    {
+        $array = [];
+
+        foreach ($this->fillable as $key) {
+            $array[$key] = $this->{$key};
+        }
+
+        return $array;
     }
 }
