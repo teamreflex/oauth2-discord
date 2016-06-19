@@ -18,7 +18,23 @@ $provider = new \Discord\OAuth\Discord([
 	'clientSecret' => 'oauth-app-secret',
 ]);
 
-echo '<a href="'.$provider->getAuthorizationUrl().">Login with Discord</a>';
+if (! isset($_GET['code'])) {
+	echo '<a href="'.$provider->getAuthorizationUrl().">Login with Discord</a>';
+} else {
+	$token = $provider->getAccessToken('client_credentials', [
+		'code' => $_GET['code'],
+	]);
+
+	// Get the user object.
+	$user = $provider->getResourceOwner($token);
+
+	// Get the guilds and connections.
+	$guilds = $user->guilds;
+	$connections = $user->connections;
+
+	// Accept an invite
+	$invite = $user->acceptInvite('https://discord.gg/0SBTUU1wZTUo9F8v');
+}
 ```
 
 ## License
