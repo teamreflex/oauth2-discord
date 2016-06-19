@@ -99,7 +99,7 @@ class Discord extends AbstractProvider
     protected function checkResponse(ResponseInterface $response, $data)
     {
         if (isset($data['error'])) {
-            throw new \Exception('Erorr in response from Discord: '.$data['error']);
+            throw new \Exception('Error in response from Discord: '.$data['error']);
         }
     }
 
