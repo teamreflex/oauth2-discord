@@ -17,7 +17,7 @@
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src/Discord/</directory>
+            <directory suffix=".php">./src/Discord</directory>
         </whitelist>
     </filter>
 </phpunit>
