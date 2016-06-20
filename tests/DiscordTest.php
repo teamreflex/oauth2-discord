@@ -233,12 +233,14 @@ class DiscordTest extends \PHPUnit_Framework_TestCase
 
     public function testDiscordRequest()
     {
-        $mockResponse = json_decode('{"mock": true}', true);
-        $provider = m::mock(DiscordProvider::class.'[getResponse]');
+        $guzzleResponse = new Response(200, [], '{"mock": true}');
 
-        $provider->shouldReceive('getResponse')
+        $provider = m::mock(DiscordProvider::class.'[sendRequest]')
+            ->shouldAllowMockingProtectedMethods();
+
+        $provider->shouldReceive('sendRequest')
             ->times(1)
-            ->andReturn($mockResponse);
+            ->andReturn($guzzleResponse);
 
         $token = m::mock('League\OAuth2\Client\Token\AccessToken');
 
