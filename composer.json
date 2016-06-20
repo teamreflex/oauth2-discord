@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "symfony/var-dumper": "^3.1",
-        "phpunit/phpunit": "^5.4",
+        "phpunit/phpunit": "~4.0",
         "mockery/mockery": "^0.9.5"
     }
 }
