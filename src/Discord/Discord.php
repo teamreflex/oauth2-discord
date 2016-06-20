@@ -117,7 +117,7 @@ class Discord extends AbstractProvider
      * @param string      $method The HTTP method.
      * @param string      $url    The URL.
      * @param AccessToken $token  The auth token.
-     * 
+     *
      * @return array Response.
      */
     public function request($method, $url, $token)

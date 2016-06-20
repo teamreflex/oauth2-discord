@@ -107,7 +107,7 @@ class Part
      * Handles debug calls.
      *
      * @return array Debug info.
-     * 
+     *
      * @codeCoverageIgnore
      */
     public function __debugInfo()
@@ -118,7 +118,7 @@ class Part
     /**
      * Converts the object to an array.
      *
-     * @return array 
+     * @return array
      */
     public function toArray()
     {

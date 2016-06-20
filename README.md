@@ -14,12 +14,13 @@ Run `composer require team-reflex/oauth2-discord`.
 $provider = new \Discord\OAuth\Discord([
 	'clientId'     => 'oauth-app-id',
 	'clientSecret' => 'oauth-app-secret',
+	'redirectUri'  => 'http://your.redirect.url',
 ]);
 
 if (! isset($_GET['code'])) {
 	echo '<a href="'.$provider->getAuthorizationUrl().'">Login with Discord</a>';
 } else {
-	$token = $provider->getAccessToken('client_credentials', [
+	$token = $provider->getAccessToken('authorization_code', [
 		'code' => $_GET['code'],
 	]);
 
@@ -32,6 +33,13 @@ if (! isset($_GET['code'])) {
 
 	// Accept an invite
 	$invite = $user->acceptInvite('https://discord.gg/0SBTUU1wZTUo9F8v');
+
+	// Get a refresh token
+	$refresh = $provider->getAccessToken('refresh_token', [
+		'refresh_token' => $getOldTokenFromMemory->getRefreshToken(),
+	]);
+
+	// Store the new token.
 }
 ```
 
