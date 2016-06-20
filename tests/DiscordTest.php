@@ -169,6 +169,12 @@ class DiscordTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('mock_id2', $conn2->id);
         $this->assertEquals('mock_name2', $conn2->name);
         $this->assertEquals('mock_type2', $conn2->type);
+
+        $conn = $conn1->toArray();
+
+        $this->assertArrayHasKey('id', $conn);
+        $this->assertArrayHasKey('name', $conn);
+        $this->assertArrayHasKey('type', $conn);
 	}
 
 	public function testInviteData()
@@ -207,5 +213,12 @@ class DiscordTest extends \PHPUnit_Framework_TestCase
         		'type' => 'mock_type',
         	], $invite->channel);
         }
+
+        $invite = $invite->toArray();
+
+        $this->assertArrayHasKey('id', $invite);
+        $this->assertArrayHasKey('guild', $invite);
+        $this->assertArrayHasKey('xkcdpass', $invite);
+        $this->assertArrayHasKey('channel', $invite);
 	}
 }

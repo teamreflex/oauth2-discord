@@ -65,7 +65,7 @@ class Part
     {
         foreach ($attributes as $key => $value) {
             if (array_search($key, $this->fillable) !== false) {
-                $this->attributes[$key] = $value;
+                $this->{$key} = $value;
             }
         }
     }
@@ -107,6 +107,8 @@ class Part
      * Handles debug calls.
      *
      * @return array Debug info.
+     * 
+     * @codeCoverageIgnore
      */
     public function __debugInfo()
     {
