@@ -46,7 +46,7 @@ class User extends Part implements ResourceOwnerInterface
      */
     public function getGuildsAttribute()
     {
-        $request = $this->discord->request(
+        $response = $this->discord->request(
             'GET',
             $this->discord->getGuildsEndpoint(),
             $this->token
@@ -106,6 +106,6 @@ class User extends Part implements ResourceOwnerInterface
             $this->token
         );
 
-        return $this->discord->buildPart(Invite::class, $this->token, $raw);
+        return $this->discord->buildPart(Invite::class, $this->token, $response);
     }
 }

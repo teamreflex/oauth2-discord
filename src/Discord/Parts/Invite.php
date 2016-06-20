@@ -20,14 +20,7 @@ class Invite extends Part
      */
     protected $fillable = [
         'code',
-        'max_age',
         'guild',
-        'revoked',
-        'created_at',
-        'temporary',
-        'uses',
-        'max_uses',
-        'inviter',
         'xkcdpass',
         'channel',
     ];
