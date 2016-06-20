@@ -1,10 +1,10 @@
-oauth-discord
+oauth2-discord
 ===
 Provides Discord OAuth 2.0 support for PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
 ## Installation
 
-Run `composer require team-reflex/oauth-discord`.
+Run `composer require team-reflex/oauth2-discord`.
 
 ## Usage
 
@@ -38,7 +38,7 @@ if (! isset($_GET['code'])) {
 ## Credits
 
 - [David Cole](https://github.com/uniquoooo)
-- [All Contributors](https://github.com/teamreflex/oauth-discord/contributors)
+- [All Contributors](https://github.com/teamreflex/oauth2-discord/contributors)
 
 ## License
 

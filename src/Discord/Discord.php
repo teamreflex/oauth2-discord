@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is a part of the oauth-discord project.
+ * This file is a part of the oauth2-discord project.
  *
  * Copyright (c) 2016 David Cole <david@team-reflex.com>
  *
