@@ -229,4 +229,29 @@ class DiscordTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('xkcdpass', $invite);
         $this->assertArrayHasKey('channel', $invite);
     }
+
+    public function testDiscordRequest()
+    {
+        $mockResponse = json_decode('{"mock": true}', true);
+        $provider = m::mock(DiscordProvider::class.'[getResponse]');
+
+        $provider->shouldReceive('getResponse')
+            ->times(1)
+            ->andReturn($mockResponse);
+
+        $token = m::mock('League\OAuth2\Client\Token\AccessToken');
+
+        $token->shouldReceive('getToken')
+            ->times(1)
+            ->andReturn('mock_token');
+
+        $response = $provider->request(
+            'GET',
+            'mock_url',
+            $token
+        );
+
+        $this->assertArrayHasKey('mock', $response);
+        $this->assertEquals(true, $response['mock']);
+    }
 }
