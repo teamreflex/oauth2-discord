@@ -216,7 +216,7 @@ class DiscordTest extends \PHPUnit_Framework_TestCase
 
         $invite = $invite->toArray();
 
-        $this->assertArrayHasKey('id', $invite);
+        $this->assertArrayHasKey('code', $invite);
         $this->assertArrayHasKey('guild', $invite);
         $this->assertArrayHasKey('xkcdpass', $invite);
         $this->assertArrayHasKey('channel', $invite);
