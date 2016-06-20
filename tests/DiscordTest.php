@@ -97,6 +97,9 @@ class DiscordTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(true, $user->verified);
         $this->assertEquals(false, $user->mfa_enabled);
 
+        // tests for part
+        $this->assertEquals(null, $user->mock_test_part);
+
         $user = $user->toArray();
 
         $this->assertArrayHasKey('id', $user);
