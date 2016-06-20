@@ -33,6 +33,8 @@ class User extends Part implements ResourceOwnerInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
      */
     public function getId()
     {
