@@ -11,6 +11,7 @@
 
 namespace Discord\OAuth;
 
+use Discord\OAuth\DiscordRequestException;
 use Discord\OAuth\Parts\User;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Token\AccessToken;
@@ -84,10 +85,6 @@ class Discord extends AbstractProvider
      */
     public function getAuthorizationHeaders($token = null)
     {
-        if (is_null($token)) {
-            return [];
-        }
-
         return [
             'Authorization' => 'Bearer '.$token->getToken(),
         ];
@@ -99,7 +96,7 @@ class Discord extends AbstractProvider
     protected function checkResponse(ResponseInterface $response, $data)
     {
         if (isset($data['error'])) {
-            throw new \Exception('Error in response from Discord: '.$data['error']);
+            throw new DiscordRequestException('Error in response from Discord: '.$data['error']);
         }
     }
 

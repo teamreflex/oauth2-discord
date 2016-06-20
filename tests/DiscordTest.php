@@ -12,6 +12,7 @@
 namespace Discord\OAuth\tests;
 
 use Discord\OAuth\Discord as DiscordProvider;
+use GuzzleHttp\Psr7\Response;
 use Mockery as m;
 
 class DiscordTest extends \PHPUnit_Framework_TestCase
@@ -253,5 +254,32 @@ class DiscordTest extends \PHPUnit_Framework_TestCase
 
         $this->assertArrayHasKey('mock', $response);
         $this->assertEquals(true, $response['mock']);
+    }
+
+    /**
+     * @expectedException Discord\OAuth\DiscordRequestException
+     */
+    public function testResponseChecking()
+    {
+        $guzzleResponse = new Response(500, [], '{"error": "mock_error"}');
+
+        $provider = m::mock(DiscordProvider::class.'[sendRequest]')
+            ->shouldAllowMockingProtectedMethods();
+
+        $provider->shouldReceive('sendRequest')
+            ->times(1)
+            ->andReturn($guzzleResponse);
+
+        $token = m::mock('League\OAuth2\Client\Token\AccessToken');
+
+        $token->shouldReceive('getToken')
+            ->times(1)
+            ->andReturn('mock_token');
+
+        $response = $provider->request(
+            'GET',
+            'mock_url',
+            $token
+        );
     }
 }
