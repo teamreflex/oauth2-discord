@@ -111,16 +111,17 @@ class Discord extends AbstractProvider
     /**
      * Runs a request.
      *
-     * @param string      $method The HTTP method.
-     * @param string      $url    The URL.
-     * @param AccessToken $token  The auth token.
+     * @param string      $method  The HTTP method.
+     * @param string      $url     The URL.
+     * @param AccessToken $token   The auth token.
+     * @param array       $options An array of request options.
      *
      * @return array Response.
      */
-    public function request($method, $url, $token)
+    public function request($method, $url, $token, array $options = [])
     {
         $request = $this->getAuthenticatedRequest(
-            $method, $url, $token
+            $method, $url, $token, $options
         );
 
         return $this->getResponse($request);
