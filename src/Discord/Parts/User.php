@@ -42,6 +42,43 @@ class User extends Part implements ResourceOwnerInterface
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+    /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+    public function getUserName()
+    {
+        return $this->username;
+    }
+    /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+    public function getDiscriminator()
+    {
+        return $this->discriminator;
+    }
+    
+    /**
      * Gets the guilds attribute.
      *
      * @return Collection Guilds.
