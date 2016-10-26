@@ -25,4 +25,50 @@ class Guild extends Part
         'owner',
         'permissions',
     ];
+	
+    /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+	public function getId()
+	{
+		return $this->id;
+	}
+    /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+	public function getName()
+	{
+		return $this->name;
+	}
+    /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+	public function getIcon()
+	{
+		return $this->icon;
+	}
+    /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+	public function isOwner()
+	{
+		return $this->owner;
+	}
+    /**
+     * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
+     */
+	public function getPermissions()
+	{
+		return $this->permissions;
+	}
 }
