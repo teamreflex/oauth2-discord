@@ -69,7 +69,7 @@ class Discord extends AbstractProvider
      */
     protected function getDefaultScopes()
     {
-        return ['identify', 'email'];
+        return array_merge(['identify', 'email'], $this->scopes);
     }
 
     /**
