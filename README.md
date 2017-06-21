@@ -17,6 +17,7 @@ $provider = new \Discord\OAuth\Discord([
 	'clientId'     => 'oauth-app-id',
 	'clientSecret' => 'oauth-app-secret',
 	'redirectUri'  => 'http://your.redirect.url',
+	'scopes' => ['guilds'] //extra scopes besides "email" and "identify"
 ]);
 
 if (! isset($_GET['code'])) {
