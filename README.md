@@ -44,7 +44,11 @@ if (! isset($_GET['code'])) {
 	// Store the new token.
 }
 ```
-
+### Scopes
+To change a Scope, default is `identify` and `email`, you can call the static Method below;
+```
+\Discord\OAuth\DefaultScopes::setDefaultScopes(['bot']);
+```
 ## Credits
 
 - [David Cole](https://github.com/uniquoooo)
