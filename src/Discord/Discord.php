@@ -38,6 +38,12 @@ class Discord extends AbstractProvider
         'guilds', // Allows you to retrieve the guilds the user is in
         'guilds.join', // Allows you to join the guild for the user
         'bot', // Defines a bot
+        'gdm.join', // Allows you to join group DM
+        'messages.read', // for local rpc server api access, this allows you to read messages from all client channels (otherwise restricted to channels/guilds your app creates)
+        'rpc', // for local rpc server access, this allows you to control a user's local Discord client
+        'rpc.api', // for local rpc server api access, this allows you to access the API as the local user
+        'rpc.notifications.read', // for local rpc server api access, this allows you to receive notifications pushed out to the user
+        'webhook.incoming', // for local rpc server api access, this allows you to receive notifications pushed out to the user
     ];
 
     /**
