@@ -43,7 +43,7 @@ class Discord extends AbstractProvider
     public $defaultscopes = [
       'identify',
       'email'
-    ]
+  ];
     /**
      * {@inheritdoc}
      */
