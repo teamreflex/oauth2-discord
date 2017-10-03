@@ -6,7 +6,7 @@ Provides Discord OAuth 2.0 support for PHP League's [OAuth 2.0 Client](https://g
 
 ## Installation
 
-Run `composer require team-reflex/oauth2-discord`.
+Run `composer bennetgallein/oauth2-discord`.
 
 ## Usage
 

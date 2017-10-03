@@ -4,12 +4,12 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "David Cole",
-            "email": "david@team-reflex.com"
-        },
-        {
             "name": "Bennet Gallein",
             "email": "bennet@intranetproject.net"
+        },
+        {
+            "name": "David Cole",
+            "email": "david@team-reflex.com"
         }
     ],
     "autoload": {
