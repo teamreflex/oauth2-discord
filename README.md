@@ -1,12 +1,16 @@
 oauth2-discord
 ===
-[![Build Status](https://travis-ci.org/teamreflex/oauth2-discord.svg?branch=master)](https://travis-ci.org/teamreflex/oauth2-discord) [![Coverage Status](https://coveralls.io/repos/github/teamreflex/oauth2-discord/badge.svg?branch=master)](https://coveralls.io/github/teamreflex/oauth2-discord?branch=master)
+[![Build Status](https://travis-ci.org/bennetgallein/oauth2-discord.svg?branch=master)](https://travis-ci.org/bennetgallein/oauth2-discord)
+[![Coverage Status](https://coveralls.io/repos/github/teamreflex/oauth2-discord/badge.svg?branch=master)](https://coveralls.io/github/teamreflex/oauth2-discord?branch=master)
 
 Provides Discord OAuth 2.0 support for PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
+## Spoiler
+
+As you may have seen this is a fork from the origin repository which seems to be dead. So if you have any changes, commit them here and not there!
 ## Installation
 
-Run `composer require team-reflex/oauth2-discord`.
+Run `composer bennetgallein/oauth2-discord`.
 
 ## Usage
 
@@ -44,7 +48,11 @@ if (! isset($_GET['code'])) {
 	// Store the new token.
 }
 ```
-
+### Scopes
+To change a Scope, default is `identify` and `email`, you can call the static Method below;
+```
+\Discord\OAuth\DefaultScopes::setDefaultScopes(['bot']);
+```
 ## Credits
 
 - [David Cole](https://github.com/uniquoooo)

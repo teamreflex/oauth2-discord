@@ -1,8 +1,12 @@
 {
-    "name": "team-reflex/oauth2-discord",
-    "description": "OAuth2 client for authenticating with the Discord API servers",
+    "name": "bennetgallein/oauth2-discord",
+    "description": "OAuth2 client for authenticating with the Discord API servers. THIS IS A CLONE FROM team-reflex/oauth2-discord SINCE THEY STOPED DEVELOPING!",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Bennet Gallein",
+            "email": "bennet@intranetproject.net"
+        },
         {
             "name": "David Cole",
             "email": "david@team-reflex.com"

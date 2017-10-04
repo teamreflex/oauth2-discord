@@ -12,6 +12,7 @@
 namespace Discord\OAuth;
 
 use Discord\OAuth\DiscordRequestException;
+use Discord\OAuth\DefaultScopes;
 use Discord\OAuth\Parts\User;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Token\AccessToken;
@@ -39,7 +40,10 @@ class Discord extends AbstractProvider
         'guilds.join', // Allows you to join the guild for the user
         'bot', // Defines a bot
     ];
-
+    public $defaultscopes = [
+      'identify',
+      'email'
+  ];
     /**
      * {@inheritdoc}
      */
@@ -69,9 +73,8 @@ class Discord extends AbstractProvider
      */
     protected function getDefaultScopes()
     {
-        return ['identify', 'email'];
+        return DefaultScopes::$defaultScopes;
     }
-
     /**
      * {@inheritdoc}
      */
