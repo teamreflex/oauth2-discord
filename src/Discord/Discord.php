@@ -24,7 +24,7 @@ class Discord extends AbstractProvider
      *
      * @var string Base API url.
      */
-    const BASE_API_URL = 'https://discordapp.com/api';
+    const BASE_API_URL = 'https://discord.com/api';
 
     /**
      * An array of available OAuth scopes.
